@@ -24,7 +24,11 @@
 
 declare(strict_types=1);
 
-function accumulate(array $input, callable $accumulator): array
+function accumulate(array $inputs, callable $accumulator): array
 {
-    throw new \BadFunctionCallException("Implement the accumulate function");
+    $res = [];
+    foreach ($inputs as $input){
+        $res[]= $accumulator($input);
+    }
+    return $res;
 }
